@@ -1,0 +1,66 @@
+.cm-header{
+    background-color: #034c86;
+    color:white;
+    text-align: center;
+    padding-bottom: 5px;
+}
+th{
+    background-color: #034c86;
+    color:white;
+}
+.cm-title{
+    font-size: 24px;
+    font-weight: 500;
+    padding: 20px;
+}
+.cm-button{
+       /* fallback for old browsers */
+       background: linear-gradient(to top, rgb(198 209 243), rgb(227 230 232 / 98%));
+       border-radius: 2px;
+       padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 150px;
+}
+.cm-button-red{
+    color:red;
+}
+ /* ul > li > a.active{
+    background: linear-gradient(to top, #0e74c5, #d4dbeb);
+    border: 3px solid #d6dcea;
+ } */
+
+.col-padd0-r{
+    padding:0px;
+    text-align: right;
+    margin-right: 2px;
+    color:#8a7e7e;
+}
+.col-padd0-l{
+    padding:0px;
+    text-align: left;
+    margin-left: 2px;
+}
+.col-padd0-c{
+    padding:0px;
+    text-align: center;
+    color:#8a7e7e;
+}
+.card-body .row{
+    margin-top: 10px;
+}
+.btn-row{
+    background-color: #d5e5e6;
+    border: 1px solid #8c97a0;
+    padding: 20px;
+}
+
+
+
+.fade:not(.show) {
+    opacity: 1;
+}
+.wide-chk{
+    width: 30px;
+    height: 30px;
+}

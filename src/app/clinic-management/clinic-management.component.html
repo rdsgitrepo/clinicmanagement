@@ -1,0 +1,544 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-lg-12 col-md-12 cm-header">
+      <div style="float: left;cursor: pointer;" routerLink = "/"> <<Back</div>
+      <div class="cm-title">CLINIC MANAGEMENT</div>
+  </div>
+</div>
+
+
+<div class="card" style="margin-top: 5px;">
+  <div class="card-body">
+    
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 ">
+        <ul ul class="nav nav-tabs">
+          <li class="nav-item active">
+            <a  class="nav-link active"  data-toggle="tab" aria-current="page"  href="#create-clinic" id="initialBtn">Create New Clinic</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link"  data-toggle="tab" aria-current="page"  href="#create" id="initialBtn">Create New Clinic</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link" data-toggle="tab"  href="#duplicate">Duplicate Clinics</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link" data-toggle="tab"   href="#list">List All Clinics</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link cm-button-red" data-toggle="tab" href="#delete">Delete Clinics</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div id="create-clinic" class="tab-pane fade in active">
+
+        <div class="row" >
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            POD_ID
+          </div>
+          <div class="col-lg-1 col-md-1  col-padd0-l">
+            <select style="width: 70px;">
+              <option value="Y">Y</option>
+              <option value="N">N</option>
+            </select>
+          </div>
+          <div class="col-lg-3 col-md-3  col-padd0-l">
+            <input style="width:100%" placeholder="POD_NAME" type="text">
+          </div>
+          <div class="col-lg-4 col-md-4  col-padd0-l">
+            <input style="width:100%" placeholder="POD_ADDRESS" type="text">
+          </div>
+          <div class="col-lg-2 col-md-2  col-padd0-l">
+            <input style="width: 90px;" placeholder="POD_STATE" type="text">
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            BATCH_ID
+          </div>
+          <div class="col-lg-1 col-md-1  col-padd0-l">
+            <select style="width: 70px;">
+              <option value="Y">Y</option>
+              <option value="N">N</option>
+            </select>
+          </div>
+          <div class="col-lg-5 col-md-5  col-padd0-l">
+            <input style="width:100%" placeholder="VACCINE_PRODUCT" type="text">
+          </div>
+          
+        </div>
+        <div class="row" >
+          <div class="col-lg-6 col-md-6 col-padd0-r">
+            If Pfizer or Moderna add dose-1 and dose-2 clinics? 
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-l">
+            <input class="wide-chk" type="checkbox" [(ngModel)]="clinic.isTwoDoseClinics" name="isTwoDoseClinics">
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            CLINIC ID
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            DOSE
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            ACTIVE
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            WALK_IN <br/>
+            ENABLED
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            CLINIC DATE
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            START TIME
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            END TIME
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            TIME ZONE
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            INTERVAL<br/>
+            IN MINS
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            AVAIL<br/>
+            SLOTS PER <br/>
+            INTERVAL
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            RECORD STATUS
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            IN-HOUSE<br/>
+            SCHED
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="text">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 50px;">
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 50px;">
+              <option value="Y">Y</option>
+              <option value="N">N</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 70px;">
+              <option value="0">0</option>
+              <option value="1">1</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="date" style="width: 135px;">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="time">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="time">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 70px;">
+              <option value="EST">EST</option>
+              <option value="CST">CST</option>
+              <option value="PST">PST</option>
+              <option value="MST">MST</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 70px;">
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="60">60</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="10" type="text">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 70px;">
+              <option value="NEW">NEW</option>
+              <option value="SLOT_UPDATED">SLOT_UPDATED</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="text">
+          </div>
+        </div>
+        <div class="row" *ngIf="clinic.isTwoDoseClinics" >
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="text">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 50px;">
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 50px;">
+              <option value="Y">Y</option>
+              <option value="N">N</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 70px;">
+              <option value="0">0</option>
+              <option value="1">1</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="date" style="width: 135px;">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="time">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="time">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 70px;">
+              <option value="EST">EST</option>
+              <option value="CST">CST</option>
+              <option value="PST">PST</option>
+              <option value="MST">MST</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 70px;">
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="60">60</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="10" type="text">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <select style="width: 70px;">
+              <option value="NEW">NEW</option>
+              <option value="SLOT_UPDATED">SLOT_UPDATED</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" type="text">
+          </div>
+        </div>
+    
+        <div class="row btn-row">
+          <div class="col-lg-1">
+            <a class="btn" style="color:green">SAVE</a>
+          </div>
+          <div class="col-lg-1">
+            <a class="btn" style="color:red">CANCEL</a>
+          </div>
+          <div class="col-lg-8">
+    
+          </div>
+          <div class="col-lg-2" style="text-align: right;">
+            <a class="btn" style="color: #3659bd;
+            font-weight: bold;" (click)="generateSlots()">Generate Slots>></a>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-lg-12 col-md-12 cm-header">
+              <div class="cm-title">View Slots</div>
+              
+              
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            CLINIC_ID
+          </div>
+          <div class="col-lg-2 col-md-2 col-padd0-c">
+            CLINIC_DATE
+          </div>
+          <div class="col-lg-2 col-md-2 col-padd0-c">
+            SLOT_START_TIME
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            REM_SLOTS
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            SLOT_ID
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-1 col-md-1 col-padd0-c ">
+            <input size="5" [(ngModel)]="slot.clinicId" type="text" readonly>
+          </div>
+          <div class="col-lg-2 col-md-2 col-padd0-c">
+            <input type="text"  [(ngModel)]="slot.clinicDate" readonly>
+          </div>
+          <div class="col-lg-2 col-md-2 col-padd0-c">
+            <input type="text"  [(ngModel)]="slot.startTime" readonly>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input  size="5" [(ngModel)]="slot.remainingSlots" type="text" readonly>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-c">
+            <input size="5" [(ngModel)]="slot.slotId" type="text" readonly>
+          </div>
+        </div>
+
+      </div>
+      <div id="create" class="tab-pane fade">
+        <div class="row" >
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            CLINIC ID
+          </div>
+          <div class="col-lg-1 col-md-1  col-padd0-l">
+            <input size="5" type="text">
+          </div>
+          <div class="col-lg-2 col-md-2 col-padd0-r">
+            ACTIVE
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-l">
+            <select style="width: 70px;">
+              <option value="Y">Y</option>
+              <option value="N">N</option>
+            </select>
+          </div>
+          <div class="col-lg-2 col-md-2 col-padd0-r">
+            WALK_IN_ENABLED
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-l">
+            <select style="width: 70px;">
+              <option value="0">0</option>
+              <option value="1">1</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            DOSE
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-l">
+            <select style="width: 70px;">
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            DATE
+          </div>
+          <div class="col-lg-2 col-md-2  col-padd0-l">
+            <input size="5" type="date">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            START_TIME
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-l">
+            <input size="5" type="time">
+          </div>
+          <div class="col-lg-2 col-md-2 col-padd0-r">
+            END_TIME
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-l">
+            <input size="5" type="time">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            TIMEZONE
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-l">
+            <select style="width: 70px;">
+              <option value="EST">EST</option>
+              <option value="CST">CST</option>
+              <option value="PST">PST</option>
+              <option value="MST">MST</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            PLAN_ID
+          </div>
+          <div class="col-lg-2 col-md-2  col-padd0-l">
+            <select style="width: 70px;">
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            NAME
+          </div>
+          <div class="col-lg-2 col-md-2 col-padd0-l">
+            <input size="25" type="text">
+          </div>
+          <div class="col-lg-3 col-md-3 col-padd0-r">
+            IN_HOUSE_SCHEDULING
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-l">
+            <input size="5" type="text">
+          </div>
+          
+        </div>
+    
+        <div class="row" >
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            ADDRESS
+          </div>
+          <div class="col-lg-10 col-md-10  col-padd0-l">
+            <input style="width:89%" type="text">
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            CLINIC_URL
+          </div>
+          <div class="col-lg-10 col-md-10  col-padd0-l">
+            <input style="width:89%" type="text">
+          </div>
+        </div>
+    
+        <div class="row" >
+          <div class="col-lg-2 col-md-2 col-padd0-r">
+            INTERVAL(MIN)
+          </div>
+          <div class="col-lg-1 col-md-1  col-padd0-l">
+            <select style="width: 70px;">
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="60">60</option>
+            </select>
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            AVAIL_SLOTS/INT
+          </div>
+          <div class="col-lg-2 col-md-2 col-padd0-l">
+            <input size="10" type="text">
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-r">
+            RECORD_STATUS
+          </div>
+          <div class="col-lg-1 col-md-1 col-padd0-l">
+            <select style="width: 70px;">
+              <option value="NEW">NEW</option>
+              <option value="SLOT_UPDATED">SLOT_UPDATED</option>
+            </select>
+          </div>
+          
+        </div>
+    
+        <div class="row btn-row">
+          <div class="col-lg-1">
+            <a style="color:green">Save</a>
+          </div>
+          <div class="col-lg-1">
+            <a style="color:red">Cencel</a>
+          </div>
+          <div class="col-lg-8">
+    
+          </div>
+          <div class="col-lg-2" style="text-align: right;">
+            <a style="color: #3659bd;
+            font-weight: bold;">Generate Slots>></a>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-lg-12 col-md-12 cm-header">
+              <div class="cm-title">View Slots</div>
+              <div class="row">
+                <div class="col-lg-1 col-md-1 cm-header">
+                  CLINIC_ID
+                </div>
+                <div class="col-lg-1 col-md-1 cm-header">
+                  CLINIC_DATE
+                </div>
+                <div class="col-lg-2 col-md-2 cm-header">
+                  SLOT_START_TIME
+                </div>
+                <div class="col-lg-1 col-md-1 cm-header">
+                  REM_SLOTS
+                </div>
+                <div class="col-lg-1 col-md-1 cm-header">
+                  SLOT_ID
+                </div>
+              </div>
+              
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+              
+              <div class="row">
+                <div class="col-lg-1 col-md-1 ">
+                  <input type="text" readonly>
+                </div>
+                <div class="col-lg-1 col-md-1">
+                  <input type="text" readonly>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                  <input type="text" readonly>
+                </div>
+                <div class="col-lg-1 col-md-1">
+                  <input type="text" readonly>
+                </div>
+                <div class="col-lg-1 col-md-1">
+                  <input type="text" readonly>
+                </div>
+              </div>
+          </div>
+        </div>
+
+      </div>
+      <div id="duplicate" class="tab-pane fade">
+        <h3>Duplicate Clinic</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div id="list" class="tab-pane fade">
+        <h3>List All Clinics</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width: 5%;">CLINIC_ID</th>
+              <th>POD NAME</th>
+              <th>DOSE</th>
+              <th>ACTIVE </th>
+              <th>CLINIC_DATE</th>
+              <th>TIMEZONE</th>
+              <th>STATE</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr *ngFor="let clinic of clinicList">
+              <td style="text-align: right;"><a href="#"><u>{{clinic.clinicId}}</u>></a></td>
+              <td>{{clinic.podName}}</td>
+              <td>{{clinic.dose}}</td>
+              <td>{{clinic.active}} </td>
+              <td>{{clinic.clinicDate}}</td>
+              <td>{{clinic.timeZone}}</td>
+              <td>{{clinic.state}}</td>
+              <td ><a href="#" style="color:red">Delete</a></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div id="delete" class="tab-pane fade">
+        <h3>Delete Clinic</h3>
+        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
