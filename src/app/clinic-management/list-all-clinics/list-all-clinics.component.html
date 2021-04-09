@@ -1,0 +1,59 @@
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width: 5%;">CLINIC_ID</th>
+              <th>POD NAME</th>
+              <th>DOSE</th>
+              <th>ACTIVE </th>
+              <th>CLINIC_DATE</th>
+              <th>TIMEZONE</th>
+              <th>STATE</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let clinic of clinicList">
+              <td style="text-align: right;">
+                <a class="btn"  (click)="populateClinic(clinic)"><u>{{clinic.clinicId}}</u>>></a>
+              </td>
+              <td>{{clinic.podName}}</td>
+              <td>{{clinic.dose}}</td>
+              <td>{{clinic.active}} </td>
+              <td>{{clinic.clinicDate}}</td>
+              <td>{{clinic.timeZone}}</td>
+              <td>{{clinic.state}}</td>
+              <td >
+                <div class="btn" (click)="deleteClinic(clinic)" style="color:red;cursor: pointer;">Delete</div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+
+<div *ngIf="message" class="modal" tabindex="-1" role="dialog" style="display:block!important">    
+  <div class="modal-dialog custom-alert" role="document">    
+      <div class="modal-content">    
+  
+          <div *ngIf="message?.type == 'confirm'" class="modal-body">    
+              <div class="row">    
+                  <div class="col-md-12">    
+                      <p class="text-center confirm-message">{{message.text}}</p>    
+                  </div>    
+              </div>    
+              <div class="row">    
+                  <div class="col-md-12">    
+                      <p class="confirm-button">    
+                          <a class="mr-2" (click)="message.yesFn()">    
+                              <button class="btn btn-yes">Yes</button>    
+                          </a>    
+                          <a (click)="message.noFn()">    
+                              <button class="btn btn-no">No</button>    
+                          </a>    
+                      </p>    
+                  </div>    
+              </div>    
+          </div>    
+      </div>    
+  </div>    
+</div>
+<app-confirm-dialog></app-confirm-dialog>
