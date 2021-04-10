@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-create-new-clinic',
@@ -6,14 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-new-clinic.component.css']
 })
 export class CreateNewClinicComponent implements OnInit {
-  clinic:any;
+  @Input() clinic:any;
   slot:any;
   constructor() { }
 
   ngOnInit() {
-    this.clinic = {
-      isTwoDoseClinics:false
-    };
+    this.clinic.isTwoDoseClinics = false;
     this.slot = {};
   }
   generateSlots(){

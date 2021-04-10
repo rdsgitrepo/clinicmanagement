@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter   } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmDialogService } from 'src/app/confirm-dialog.service';
 
@@ -9,6 +9,7 @@ import { ConfirmDialogService } from 'src/app/confirm-dialog.service';
 })
 export class ListAllClinicsComponent implements OnInit {
   clinicList:any;
+  @Output() editClinicChanged: EventEmitter<any> =   new EventEmitter();
   constructor(
     private confirmDialogService: ConfirmDialogService,
     private router: Router
@@ -111,7 +112,7 @@ export class ListAllClinicsComponent implements OnInit {
 
   populateClinic(clinic){
     // this.router.navigate(["/clinic-management"]);
-    
+    this.editClinicChanged.emit(clinic);
   }
 
 }

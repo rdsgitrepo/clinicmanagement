@@ -14,26 +14,26 @@
       <div class="col-lg-12 col-md-12 col-sm-12 ">
         <ul ul class="nav nav-tabs">
           <li class="nav-item active">
-            <a  class="nav-link active"  data-toggle="tab" aria-current="page"  href="#create-clinic" id="initialBtn">Create New Clinic</a>
+            <a  class="nav-link active" href="#" data-toggle="tab" aria-current="page" (click)="openTab('create-clinic')" id="initialBtn">Create New Clinic</a>
           </li>
           <!-- <li class="nav-item">
             <a  class="nav-link"  data-toggle="tab" aria-current="page"  href="#create" id="initialBtn">Create New Clinic</a>
           </li> -->
           <li class="nav-item">
-            <a  class="nav-link" data-toggle="tab"  href="#duplicate">Duplicate Clinics</a>
+            <a  class="nav-link" href="#" data-toggle="tab"  (click)="openTab('duplicate')">Duplicate Clinics</a>
           </li>
           <li class="nav-item">
-            <a  class="nav-link" data-toggle="tab"   href="#list">List All Clinics</a>
+            <a  class="nav-link" href="#" data-toggle="tab"   (click)="openTab('list')">List All Clinics</a>
           </li>
           <li class="nav-item">
-            <a  class="nav-link cm-button-red" data-toggle="tab" href="#delete">Delete Clinics</a>
+            <a  class="nav-link cm-button-red" href="#" data-toggle="tab" (click)="openTab('delete')">Delete Clinics</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="tab-content mar-top-20" >
-      <div id="create-clinic" class="tab-pane fade in active">
-          <app-create-new-clinic></app-create-new-clinic>
+      <div id="create-clinic" *ngIf="tab=='create-clinic'" class="tab-pane fade in active">
+          <app-create-new-clinic [clinic]=clinic></app-create-new-clinic>
       </div>
       <!-- <div id="create" class="tab-pane fade">
         <div class="row" >
@@ -236,13 +236,13 @@
         </div>
 
       </div> -->
-      <div id="duplicate" class="tab-pane fade">
+      <div id="duplicate" *ngIf="tab=='duplicate'" class="tab-pane fade in active">
         <app-duplicate-clinics></app-duplicate-clinics>
       </div>
-      <div id="list" class="tab-pane fade">
-        <app-list-all-clinics></app-list-all-clinics>
+      <div id="list" *ngIf="tab=='list'" class="tab-pane fade in active">
+        <app-list-all-clinics (editClinicChanged)="editClinicChangedHandler($event)"></app-list-all-clinics>
       </div>
-      <div id="delete" class="tab-pane fade">
+      <div id="delete" *ngIf="tab=='delete'" class="tab-pane fade in active">
         <app-delete-clinics></app-delete-clinics>
       </div>
     </div>

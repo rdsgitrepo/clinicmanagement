@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clinic-management.component.css']
 })
 export class ClinicManagementComponent implements OnInit {
-
+  tab:string;
   clinicList:any;
   clinic:any;
   slot:any;
@@ -100,8 +100,17 @@ export class ClinicManagementComponent implements OnInit {
       isTwoDoseClinics:false
     };
     this.slot = {};
+    this.tab = 'create-clinic';
   }
-
+  openTab(tab){
+    this.tab = tab;
+  }
+  editClinicChangedHandler(clinic){
+    console.log("Clinic..........",clinic);
+    
+    this.clinic = clinic;
+    this.openTab('create-clinic')
+  }
   generateSlots(){
     this.slot = {
       clinicId:"52",
